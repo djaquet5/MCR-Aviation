@@ -1,5 +1,6 @@
 package Client;
 
+import Status.*;
 
 public class Client {
     private static int _id = 0;
@@ -9,16 +10,17 @@ public class Client {
     private int id;
     private double credit;
     private int miles;
-    private Staus staus;
+    private Status status;
     private String lastAction;
 
     public Client(String surname, String name) {
         this.surname = surname;
         this.name = name;
         id = _id++;
-        lastAction = "";
         credit = 0;
         miles = 0;
+        status = new Silver(this);
+        lastAction = "";
     }
 
     public String getSurname() {
@@ -33,7 +35,19 @@ public class Client {
         return id;
     }
 
+    public double getCredit() {
+        return credit;
+    }
+
+    public int getMiles() {
+        return miles;
+    }
+
     public String getLastAction() {
         return lastAction;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
