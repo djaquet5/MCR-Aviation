@@ -8,8 +8,13 @@ public class Silver extends Status {
         super(client);
     }
 
-    public Silver(Status status) {
+    Silver(Status status) {
         super(status);
+    }
+
+    @Override
+    double getCoefficient() {
+        return 0.1;
     }
 
     @Override

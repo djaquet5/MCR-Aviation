@@ -1,7 +1,7 @@
 package Status;
 
-public class PermaPlat extends Platinium {
-    public PermaPlat(Status status) {
+class PermaPlat extends Platinum {
+    PermaPlat(Status status) {
         super(status);
     }
 

@@ -1,5 +1,5 @@
 package Client;
 
-public class ClientManager {
-    //interface graphique
+public abstract class ClientManager {
+
 }

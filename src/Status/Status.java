@@ -5,7 +5,7 @@ import Client.Client;
 public abstract class Status {
     static final int silverThreshold = 1000;
     static final int goldThreshold = 10000;
-    static final int platiniumThreshold = 100000;
+    static final int platinumThreshold = 100000;
 
     protected Client client;
 
@@ -21,5 +21,6 @@ public abstract class Status {
         return client;
     }
 
+    abstract double getCoefficient();
     abstract void thresholdCheck();
 }

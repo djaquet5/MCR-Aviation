@@ -1,8 +1,13 @@
 package Status;
 
-public class Gold extends Status {
-    public Gold(Status status) {
+class Gold extends Status {
+    Gold(Status status) {
         super(status);
+    }
+
+    @Override
+    double getCoefficient() {
+        return 0.5;
     }
 
     @Override
@@ -10,7 +15,7 @@ public class Gold extends Status {
         if (client.getMiles() < silverThreshold) {
             client.setStatus(new Silver(this));
         } else if (client.getMiles() >= goldThreshold) {
-            client.setStatus(new Platinium(this));
+            client.setStatus(new Platinum(this));
         }
     }
 }
