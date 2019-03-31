@@ -1,3 +1,5 @@
+package Flight;
+
 public class Flight {
     private String name;
     private int distance;
@@ -7,5 +9,17 @@ public class Flight {
         this.name = name;
         this.distance = distance;
         this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }
