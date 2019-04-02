@@ -3,10 +3,10 @@ package Flight;
 public class Flight {
     private String name;
     private int distance;
-    private int price;
+    private double price;
     private Ticket[] tickets;
 
-    public Flight(String name, int distance, int price) {
+    public Flight(String name, int distance, double price) {
         this.name = name;
         this.distance = distance;
         this.price = price;
@@ -26,7 +26,7 @@ public class Flight {
         return distance;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

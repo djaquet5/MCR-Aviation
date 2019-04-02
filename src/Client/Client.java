@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Client implements Comparable{
     private ArrayList<Observer> observers = new ArrayList<>();
-    private static int _id = 0;
+    private static int nbClients = 0;
 
     private String lastName;
     private String firstName;
@@ -25,7 +25,7 @@ public class Client implements Comparable{
     public Client(String lastName, String firstName) {
         this.lastName = lastName;
         this.firstName = firstName;
-        id = _id++;
+        id = nbClients++;
         credit = 0;
         miles = 0;
         status = new Silver(this);
@@ -62,12 +62,12 @@ public class Client implements Comparable{
 
     public void setStatus(Status status) {
         this.status = status;
-        observerNotify();
+        notifyObserver();
     }
 
     public void setLastAction(String lastAction) {
         this.lastAction = lastAction;
-        observerNotify();
+        notifyObserver();
     }
 
     /**
@@ -77,7 +77,7 @@ public class Client implements Comparable{
     public void addMiles(double miles) {
         this.miles += miles * status.getCoefficient();
         status.thresholdCheck();
-        observerNotify();
+        notifyObserver();
     }
 
     /**
@@ -87,7 +87,7 @@ public class Client implements Comparable{
     public void payMiles(double miles) {
         this.miles -= miles;
         status.thresholdCheck();
-        observerNotify();
+        notifyObserver();
     }
 
     /**
@@ -96,7 +96,7 @@ public class Client implements Comparable{
      */
     public void addCredit(double credit) {
         this.credit += credit;
-        observerNotify();
+        notifyObserver();
     }
 
     /**
@@ -126,7 +126,7 @@ public class Client implements Comparable{
     /**
      * notify all observers to update in case of a change
      */
-    public void observerNotify(){
+    public void notifyObserver(){
         for (Observer observer : observers)
             observer.update(this);
     }
