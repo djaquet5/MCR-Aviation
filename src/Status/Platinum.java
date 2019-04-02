@@ -8,12 +8,12 @@ class Platinum extends Status {
     }
 
     @Override
-    double getCoefficient() {
+    public double getCoefficient() {
         return 1;
     }
 
     @Override
-    void thresholdCheck() {
+    public void thresholdCheck() {
         if (client.getMiles() < goldThreshold) {
             client.setStatus(new Gold(this));
         } else if (client.getCredit() >= platinumThreshold) {

@@ -15,12 +15,12 @@ public class Silver extends Status {
     }
 
     @Override
-    double getCoefficient() {
+    public double getCoefficient() {
         return 0.1;
     }
 
     @Override
-    void thresholdCheck() {
+    public void thresholdCheck() {
         if (client.getMiles() >= silverThreshold) {
             client.setStatus(new Gold(this));
         }

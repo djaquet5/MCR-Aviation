@@ -6,5 +6,5 @@ class PermaPlat extends Platinum {
     }
 
     @Override
-    void thresholdCheck() {}
+    public void thresholdCheck() {}
 }

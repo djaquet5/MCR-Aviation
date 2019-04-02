@@ -71,7 +71,10 @@ public class ClientManager {
       addButton.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            getCurrentClient().addCredit(Double.parseDouble(creditsText.getText()));
+            Client client = getCurrentClient();
+
+            client.addCredit(Double.parseDouble(creditsText.getText()));
+            client.setLastAction(creditsText.getText() + "$ added");
          }
       });
       creditPanel.add(addButton);
@@ -101,7 +104,20 @@ public class ClientManager {
       cash.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            System.out.println("cash");
+            Client client = getCurrentClient();
+            double cost = getCurrentTicket().getMoneyCost();
+
+            if(client.getCredit() < cost) {
+               client.setLastAction("Try to book with cash. Amount of cash is not enough");
+               return;
+            }
+
+            // Multiply by -1 to remove some credits
+            client.payCredit(cost);
+
+            Flight flight = getCurrentFlight();
+            client.addMiles(flight.getDistance());
+            client.setLastAction(flight + " booked with cash, have a pleasant fly");
          }
       });
       flightsPanel.add(cash);
@@ -110,7 +126,17 @@ public class ClientManager {
       miles.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            System.out.println("miles");
+            Client client = getCurrentClient();
+            double cost = getCurrentTicket().getMilesCost();
+
+            if(client.getMiles() < cost) {
+               client.setLastAction("Try to book with miles. Amount of miles is not enough");
+               return;
+            }
+
+            // Multiply by -1 to remove some miles
+            client.payMiles(cost);
+            client.setLastAction(getCurrentFlight() + " booked with cash, have a pleasant fly");
          }
       });
       flightsPanel.add(miles);
@@ -145,13 +171,19 @@ public class ClientManager {
    private void loadTickets() {
       tickets.removeAllItems();
 
-      Flight f = (Flight) flights.getSelectedItem();
-
-      for(Ticket t : f.getTickets())
+      for(Ticket t : getCurrentFlight().getTickets())
          tickets.addItem(t);
    }
 
    private Client getCurrentClient() {
       return (Client) clients.getSelectedItem();
+   }
+
+   private Flight getCurrentFlight() {
+      return (Flight) flights.getSelectedItem();
+   }
+
+   private Ticket getCurrentTicket() {
+      return (Ticket) tickets.getSelectedItem();
    }
 }

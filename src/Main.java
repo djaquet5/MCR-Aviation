@@ -12,13 +12,15 @@ public class Main {
       clients.add(c1);
       clients.add(c2);
 
-      Flight f1 = new Flight("F1", 123, 1);
-      Flight f2 = new Flight("F2", 789, 2);
-      Flight f3 = new Flight("F3", 34, 3);
+      Flight f1 = new Flight("F1", 100, 10);
+      Flight f2 = new Flight("F2", 500, 20);
+      Flight f3 = new Flight("F3", 1000, 30);
+      Flight f4 = new Flight("F4", 1000, 30000);
       ArrayList<Flight> flights = new ArrayList<Flight>();
       flights.add(f1);
       flights.add(f2);
       flights.add(f3);
+      flights.add(f4);
 
       new ClientManager(clients, flights);
    }
