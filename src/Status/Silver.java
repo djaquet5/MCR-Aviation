@@ -27,7 +27,7 @@ public class Silver extends Status {
     }
 
     @Override
-    Color getColor() {
+    public Color getColor() {
         return Color.GRAY;
     }
 

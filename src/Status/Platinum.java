@@ -22,7 +22,7 @@ class Platinum extends Status {
     }
 
     @Override
-    Color getColor() {
+    public Color getColor() {
         return Color.CYAN;
     }
 

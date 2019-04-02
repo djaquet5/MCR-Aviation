@@ -22,7 +22,7 @@ class Gold extends Status {
     }
 
     @Override
-    Color getColor() {
+    public Color getColor() {
         return Color.ORANGE;
     }
 

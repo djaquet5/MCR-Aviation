@@ -25,5 +25,5 @@ public abstract class Status {
 
     abstract double getCoefficient();
     abstract void thresholdCheck();
-    abstract Color getColor();
+    public abstract Color getColor();
 }

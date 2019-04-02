@@ -5,7 +5,7 @@ import Status.*;
 
 import java.util.ArrayList;
 
-public class Client {
+public class Client implements Comparable{
     private ArrayList<Observer> observers = new ArrayList<>();
     private static int _id = 0;
 
@@ -51,6 +51,10 @@ public class Client {
         return lastAction;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
     public void setStatus(Status status) {
         this.status = status;
     }
@@ -63,16 +67,21 @@ public class Client {
         this.credit += credit;
     }
 
-    private void addObserver(Observer observer) {
+    public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
-    private void removeObserver(Observer observer) {
+    public void removeObserver(Observer observer) {
         observers.remove(observer);
     }
 
     @Override
     public String toString(){
         return lastName + " " + firstName;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return this.toString().compareTo(o.toString());
     }
 }
