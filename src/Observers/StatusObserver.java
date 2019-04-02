@@ -4,6 +4,8 @@ import Client.Client;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -24,7 +26,10 @@ public class StatusObserver implements Observer {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
 
-
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        for (int i = 0; i < clients.size(); i++) {
+            panel.add(clientList.get(i));
+        }
 
         JScrollPane scrollPane = new JScrollPane(panel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -34,6 +39,15 @@ public class StatusObserver implements Observer {
         contentPane.setPreferredSize(new Dimension(500, 400));
         contentPane.add(scrollPane);
         frame.setContentPane(contentPane);
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                for (Client client : clients) {
+                    client.removeObserver(StatusObserver.this);
+                }
+            }
+        });
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
