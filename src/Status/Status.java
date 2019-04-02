@@ -4,6 +4,9 @@ import Client.Client;
 
 import java.awt.*;
 
+/**
+ * Governing class for all status
+ */
 public abstract class Status {
     static final int silverThreshold = 1000;
     static final int goldThreshold = 10000;

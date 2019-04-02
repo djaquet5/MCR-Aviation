@@ -1,5 +1,8 @@
 package Flight;
 
+/**
+ * Economy class ticket
+ */
 public class Economy extends Ticket {
     public Economy(Flight flight) {
         super(flight);

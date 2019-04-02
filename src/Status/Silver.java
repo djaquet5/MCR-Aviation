@@ -4,6 +4,9 @@ import Client.Client;
 
 import java.awt.*;
 
+/**
+ * Silver status
+ */
 public class Silver extends Status {
 
     public Silver(Client client) {

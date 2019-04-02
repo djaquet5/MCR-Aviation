@@ -2,6 +2,9 @@ package Status;
 
 import java.awt.*;
 
+/**
+ * Platinum status
+ */
 class Platinum extends Status {
     Platinum(Status status) {
         super(status);
