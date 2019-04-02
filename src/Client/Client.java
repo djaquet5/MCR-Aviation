@@ -17,6 +17,11 @@ public class Client implements Comparable{
     private Status status;
     private String lastAction;
 
+    /**
+     * Client constructor
+     * @param lastName client's last name
+     * @param firstName client's first name
+     */
     public Client(String lastName, String firstName) {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -57,22 +62,49 @@ public class Client implements Comparable{
 
     public void setStatus(Status status) {
         this.status = status;
+        observerNotify();
     }
 
-    public void setMiles(int miles) {
-        this.miles = miles;
+    /**
+     * adds miles to the client
+     * @param miles miles to add
+     */
+    public void addMiles(double miles) {
+        this.miles += miles;
+        observerNotify();
     }
 
+    /**
+     * adds credits to the client
+     * @param credit credits to add
+     */
     public void addCredit(double credit) {
         this.credit += credit;
+        observerNotify();
     }
 
+    /**
+     * add an observer to the client
+     * @param observer the observer to add
+     */
     public void addObserver(Observer observer) {
         observers.add(observer);
     }
 
+    /**
+     * remove an observer from the client
+     * @param observer the observer to remove
+     */
     public void removeObserver(Observer observer) {
         observers.remove(observer);
+    }
+
+    /**
+     * notify all observers to update in case of a change
+     */
+    public void observerNotify(){
+        for (Observer observer : observers)
+            observer.update(this);
     }
 
     @Override
