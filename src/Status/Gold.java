@@ -1,5 +1,7 @@
 package Status;
 
+import java.awt.*;
+
 class Gold extends Status {
     Gold(Status status) {
         super(status);
@@ -17,5 +19,15 @@ class Gold extends Status {
         } else if (client.getMiles() >= goldThreshold) {
             client.setStatus(new Platinum(this));
         }
+    }
+
+    @Override
+    Color getColor() {
+        return Color.ORANGE;
+    }
+
+    @Override
+    public String toString() {
+        return "GOLD";
     }
 }

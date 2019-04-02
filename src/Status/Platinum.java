@@ -1,5 +1,7 @@
 package Status;
 
+import java.awt.*;
+
 class Platinum extends Status {
     Platinum(Status status) {
         super(status);
@@ -17,5 +19,15 @@ class Platinum extends Status {
         } else if (client.getMiles() >= platinumThreshold) {
             client.setStatus(new PermaPlat(this));
         }
+    }
+
+    @Override
+    Color getColor() {
+        return Color.CYAN;
+    }
+
+    @Override
+    public String toString() {
+        return "PLATINUM";
     }
 }

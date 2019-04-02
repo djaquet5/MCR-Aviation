@@ -2,6 +2,8 @@ package Status;
 
 import Client.Client;
 
+import java.awt.*;
+
 public class Silver extends Status {
 
     public Silver(Client client) {
@@ -24,4 +26,13 @@ public class Silver extends Status {
         }
     }
 
+    @Override
+    Color getColor() {
+        return Color.GRAY;
+    }
+
+    @Override
+    public String toString() {
+        return "SILVER";
+    }
 }

@@ -2,6 +2,8 @@ package Status;
 
 import Client.Client;
 
+import java.awt.*;
+
 public abstract class Status {
     static final int silverThreshold = 1000;
     static final int goldThreshold = 10000;
@@ -23,4 +25,5 @@ public abstract class Status {
 
     abstract double getCoefficient();
     abstract void thresholdCheck();
+    abstract Color getColor();
 }
