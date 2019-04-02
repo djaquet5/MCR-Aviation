@@ -143,6 +143,11 @@ public class ClientManager {
    }
 
    private void loadTickets() {
-      System.out.println(flights.getSelectedItem());
+      tickets.removeAllItems();
+
+      Flight f = (Flight) flights.getSelectedItem();
+
+      for(Ticket t : f.getTickets())
+         tickets.addItem(t);
    }
 }

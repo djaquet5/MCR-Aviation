@@ -1,28 +1,26 @@
 package Flight;
 
 public abstract class Ticket {
-    protected Flight flight;
-    protected int moneyCoefficient;
-    protected int milesCoefficient;
+    private int moneyCoefficient;
+    private int milesCoefficient;
+
+    private Flight flight;
+
 
     public Ticket(Flight flight) {
         this.flight = flight;
     }
 
-    public double payMoney() {
-        return flight.getPrice() * moneyCoefficient;
+    public void setMoneyCoefficient(int newCoeff) {
+        moneyCoefficient = newCoeff;
     }
 
-    public double payMiles() {
-        return flight.getDistance() * milesCoefficient;
-    }
-
-    public int getMoneyCoefficient() {
-        return moneyCoefficient;
+    public void setMilesCoefficient(int newCoeff) {
+        milesCoefficient = newCoeff;
     }
 
     @Override
     public String toString() {
-        return getClass().getName();
+        return getClass().getSimpleName() + " " + flight.getPrice() * moneyCoefficient + "$";
     }
 }
