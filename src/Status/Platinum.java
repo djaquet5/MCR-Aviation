@@ -16,7 +16,7 @@ class Platinum extends Status {
     void thresholdCheck() {
         if (client.getMiles() < goldThreshold) {
             client.setStatus(new Gold(this));
-        } else if (client.getMiles() >= platinumThreshold) {
+        } else if (client.getCredit() >= platinumThreshold) {
             client.setStatus(new PermaPlat(this));
         }
     }
