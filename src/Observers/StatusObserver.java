@@ -50,6 +50,7 @@ public class StatusObserver implements Observer {
         });
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setTitle("Statuses");
         frame.setVisible(true);
     }
 
