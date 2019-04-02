@@ -2,9 +2,9 @@ package Frames;
 
 import Client.Client;
 import Flight.Flight;
+import Flight.Ticket;
 import Observers.ClientObserver;
 import Observers.StatusObserver;
-import sun.security.krb5.internal.Ticket;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -143,6 +143,11 @@ public class ClientManager {
    }
 
    private void loadTickets() {
-      System.out.println(flights.getSelectedItem());
+      tickets.removeAllItems();
+
+      Flight f = (Flight) flights.getSelectedItem();
+
+      for(Ticket t : f.getTickets())
+         tickets.addItem(t);
    }
 }
