@@ -13,7 +13,7 @@ public class Client implements Comparable{
     private String firstName;
     private int id;
     private double credit;
-    private int miles;
+    private double miles;
     private Status status;
     private String lastAction;
 
@@ -43,7 +43,7 @@ public class Client implements Comparable{
         return credit;
     }
 
-    public int getMiles() {
+    public double getMiles() {
         return miles;
     }
 

@@ -2,9 +2,9 @@ package Frames;
 
 import Client.Client;
 import Flight.Flight;
+import Flight.Ticket;
 import Observers.ClientObserver;
 import Observers.StatusObserver;
-import sun.security.krb5.internal.Ticket;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

@@ -1,6 +1,6 @@
 package Flight;
 
-abstract class Ticket {
+public abstract class Ticket {
     protected Flight flight;
     protected int moneyCoefficient;
     protected int milesCoefficient;
