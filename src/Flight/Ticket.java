@@ -6,6 +6,7 @@ public abstract class Ticket {
 
     private Flight flight;
 
+
     public Ticket(Flight flight) {
         this.flight = flight;
     }

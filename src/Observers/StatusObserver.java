@@ -13,6 +13,10 @@ public class StatusObserver implements Observer {
     private ArrayList<JLabel> clientList = new ArrayList<>();
     private ArrayList<Integer> clientIds = new ArrayList<>();
 
+    /**
+     * StatusObserver constructor
+     * @param clients list of clients to observe
+     */
     public StatusObserver(ArrayList<Client> clients) {
         Collections.sort(clients);
 

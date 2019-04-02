@@ -11,11 +11,19 @@ public abstract class Status {
 
     protected Client client;
 
-    public Status(Client client) {
+    /**
+     * Status constructor
+     * @param client the client who has this status
+     */
+    Status(Client client) {
         this.client = client;
     }
 
-    public Status(Status status) {
+    /**
+     * Status constructor (only used to change status)
+     * @param status the status to change to
+     */
+    Status(Status status) {
         this.client = status.getClient();
     }
 
@@ -23,7 +31,20 @@ public abstract class Status {
         return client;
     }
 
+    /**
+     * Get the status coefficient
+     * @return the percentage of miles you get from a purchase
+     */
     abstract double getCoefficient();
+
+    /**
+     * check if the client's current miles update his status
+     */
     abstract void thresholdCheck();
+
+    /**
+     * Get the color associated with the status
+     * @return the status' color
+     */
     public abstract Color getColor();
 }

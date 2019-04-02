@@ -13,6 +13,10 @@ public class ClientObserver implements Observer{
     private  JLabel status = new JLabel();
     private  JLabel lastAction = new JLabel();
 
+    /**
+     * ClientObserver constructor
+     * @param client the client to observe
+     */
     public ClientObserver(Client client) {
         client.addObserver(this);
         update(client);
