@@ -9,6 +9,9 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Observer for Status window
+ */
 public class StatusObserver implements Observer {
     private ArrayList<JLabel> clientList = new ArrayList<>();
     private ArrayList<Integer> clientIds = new ArrayList<>();
@@ -38,9 +41,9 @@ public class StatusObserver implements Observer {
         JScrollPane scrollPane = new JScrollPane(panel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        scrollPane.setBounds(0, 0, 500, 500);
+        scrollPane.setBounds(0, 0, 300, 100);
         JPanel contentPane = new JPanel(null);
-        contentPane.setPreferredSize(new Dimension(500, 300));
+        contentPane.setPreferredSize(new Dimension(300, 100));
         contentPane.add(scrollPane);
         frame.setContentPane(contentPane);
         frame.addWindowListener(new WindowAdapter() {

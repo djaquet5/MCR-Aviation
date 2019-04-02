@@ -7,6 +7,9 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ * Observer for client status window
+ */
 public class ClientObserver implements Observer{
     private  JLabel credits = new JLabel();
     private  JLabel miles = new JLabel();

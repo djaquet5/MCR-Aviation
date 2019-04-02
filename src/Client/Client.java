@@ -5,6 +5,9 @@ import Status.*;
 
 import java.util.ArrayList;
 
+/**
+ * Client account
+ */
 public class Client implements Comparable{
     private ArrayList<Observer> observers = new ArrayList<>();
     private static int _id = 0;
@@ -96,6 +99,7 @@ public class Client implements Comparable{
      */
     public void addCredit(double credit) {
         this.credit += credit;
+        status.thresholdCheck();
         observerNotify();
     }
 
