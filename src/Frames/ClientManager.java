@@ -54,7 +54,7 @@ public class ClientManager {
       details.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            new ClientObserver((Client) ClientManager.this.clients.getSelectedItem());
+            new ClientObserver(getCurrentClient());
          }
       });
       clientPanel.add(details);
@@ -71,7 +71,7 @@ public class ClientManager {
       addButton.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            System.out.println("Add");
+            getCurrentClient().addCredit(Double.parseDouble(creditsText.getText()));
          }
       });
       creditPanel.add(addButton);
@@ -149,5 +149,9 @@ public class ClientManager {
 
       for(Ticket t : f.getTickets())
          tickets.addItem(t);
+   }
+
+   private Client getCurrentClient() {
+      return (Client) clients.getSelectedItem();
    }
 }
