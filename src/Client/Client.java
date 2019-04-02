@@ -71,11 +71,21 @@ public class Client implements Comparable{
     }
 
     /**
-     * adds miles to the client
+     * adds miles to the client dependant on the status
      * @param miles miles to add
      */
     public void addMiles(double miles) {
-        this.miles += miles;
+        this.miles += miles * status.getCoefficient();
+        status.thresholdCheck();
+        observerNotify();
+    }
+
+    /**
+     * pay for a ticket with miles
+     * @param miles miles to pay
+     */
+    public void payMiles(double miles) {
+        this.miles -= miles;
         status.thresholdCheck();
         observerNotify();
     }
@@ -87,6 +97,14 @@ public class Client implements Comparable{
     public void addCredit(double credit) {
         this.credit += credit;
         observerNotify();
+    }
+
+    /**
+     * pay for a ticket with credits
+     * @param credit credits to pay
+     */
+    public void payCredit(double credit) {
+        addCredit(-credit);
     }
 
     /**
