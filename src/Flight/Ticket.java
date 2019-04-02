@@ -16,4 +16,13 @@ abstract class Ticket {
     public double payMiles() {
         return flight.getDistance() * milesCoefficient;
     }
+
+    public int getMoneyCoefficient() {
+        return moneyCoefficient;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName();
+    }
 }

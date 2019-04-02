@@ -2,12 +2,14 @@ package Frames;
 
 import Client.Client;
 import Flight.Flight;
+import Observers.ClientObserver;
 import Observers.StatusObserver;
+import sun.security.krb5.internal.Ticket;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class ClientManager {
@@ -16,6 +18,7 @@ public class ClientManager {
    private JPanel panel = new JPanel();
    private JComboBox<Client> clients = new JComboBox<>();
    private JComboBox<Flight> flights = new JComboBox<>();
+   private JComboBox<Ticket> tickets = new JComboBox<>();
    private JTextField creditsText = new JTextField(5);
 
    private final int width = 600;
@@ -27,7 +30,7 @@ public class ClientManager {
 
       initClient(clients);
       initCredit();
-      initFlight();
+      initFlight(flights);
       initButton(clients);
 
       frame.add(panel);
@@ -51,7 +54,7 @@ public class ClientManager {
       details.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-            System.out.println("COCOUC");
+            new ClientObserver((Client) ClientManager.this.clients.getSelectedItem());
          }
       });
       clientPanel.add(details);
@@ -62,8 +65,6 @@ public class ClientManager {
    private void initCredit() {
       JPanel creditPanel = new JPanel();
       creditPanel.add(new JLabel("Credits"));
-
-//      creditsText.setSize(100, JTextField.HEIGHT);
       creditPanel.add(creditsText);
 
       JButton addButton = new JButton("Add");
@@ -78,12 +79,47 @@ public class ClientManager {
       panel.add(creditPanel);
    }
 
-   private void initFlight() {
-      panel.add(new JLabel("Flight"));
+   private void initFlight(ArrayList<Flight> flights) {
+      JPanel flightsPanel = new JPanel();
+      flightsPanel.add(new JLabel("Flight"));
+
+      for(Flight f : flights)
+         this.flights.addItem(f);
+
+      this.flights.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            loadTickets();
+         }
+      });
+
+      loadTickets();
+      flightsPanel.add(this.flights);
+      flightsPanel.add(tickets);
+
+      JButton cash = new JButton("Book (cash)");
+      cash.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            System.out.println("cash");
+         }
+      });
+      flightsPanel.add(cash);
+
+      JButton miles = new JButton("Book (miles)");
+      miles.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            System.out.println("miles");
+         }
+      });
+      flightsPanel.add(miles);
+
+      panel.add(flightsPanel);
    }
 
    private void initButton(ArrayList<Client> clients) {
-      JPanel buttonPanel = new JPanel();
+      JPanel buttonsPanel = new JPanel();
 
       JButton statuses = new JButton("Statuses");
       statuses.addActionListener(new ActionListener() {
@@ -92,8 +128,21 @@ public class ClientManager {
             new StatusObserver(clients);
          }
       });
-      buttonPanel.add(statuses);
+      buttonsPanel.add(statuses);
 
-      panel.add(buttonPanel);
+      JButton quit = new JButton("Quit");
+      quit.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+         }
+      });
+      buttonsPanel.add(quit);
+
+      panel.add(buttonsPanel);
+   }
+
+   private void loadTickets() {
+      System.out.println(flights.getSelectedItem());
    }
 }
