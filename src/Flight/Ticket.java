@@ -19,8 +19,16 @@ public abstract class Ticket {
         milesCoefficient = newCoeff;
     }
 
+    public double getMoneyCost() {
+        return flight.getPrice() * moneyCoefficient;
+    }
+
+    public double getMilesCost() {
+        return flight.getPrice() * milesCoefficient;
+    }
+
     @Override
     public String toString() {
-        return getClass().getSimpleName() + " " + flight.getPrice() * moneyCoefficient + "$";
+        return getClass().getSimpleName() + " " + getMoneyCost() + "$";
     }
 }
