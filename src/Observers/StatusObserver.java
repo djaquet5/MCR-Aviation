@@ -34,9 +34,9 @@ public class StatusObserver implements Observer {
         JScrollPane scrollPane = new JScrollPane(panel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        scrollPane.setBounds(50, 30, 300, 50);
+        scrollPane.setBounds(0, 0, 500, 500);
         JPanel contentPane = new JPanel(null);
-        contentPane.setPreferredSize(new Dimension(500, 400));
+        contentPane.setPreferredSize(new Dimension(500, 300));
         contentPane.add(scrollPane);
         frame.setContentPane(contentPane);
         frame.addWindowListener(new WindowAdapter() {
@@ -51,6 +51,7 @@ public class StatusObserver implements Observer {
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setTitle("Statuses");
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
