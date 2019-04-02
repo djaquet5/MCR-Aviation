@@ -3,22 +3,55 @@ package Observers;
 import Client.Client;
 
 import javax.swing.*;
-import java.util.ArrayList;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ClientObserver implements Observer{
-    private final JLabel lastName = new JLabel();
-    private final JLabel firstName = new JLabel();
-    private final JLabel credit = new JLabel();
-    private final JLabel miles = new JLabel();
-    private final JLabel status = new JLabel();
-    private final JLabel lastAction = new JLabel();
+    private  JLabel credits = new JLabel();
+    private  JLabel miles = new JLabel();
+    private  JLabel status = new JLabel();
+    private  JLabel lastAction = new JLabel();
 
     public ClientObserver(Client client) {
+        client.addObserver(this);
+        update(client);
+        
+        JLabel lastName = new JLabel();
+        lastName.setText("Last name: " + client.getLastName());
+        JLabel firstName = new JLabel();
+        firstName.setText("First name: " + client.getFirstName());
 
+        JFrame frame = new JFrame();
+        frame.setSize(new Dimension(400, 200));
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                client.removeObserver(ClientObserver.this);
+            }
+        });
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.add(lastName);
+        panel.add(firstName);
+        panel.add(credits);
+        panel.add(miles);
+        panel.add(status);
+        panel.add(lastAction);
+
+        frame.setContentPane(panel);
+        frame.setResizable(false);
+        frame.setTitle("Details of client #" + client.getId());
+        frame.setVisible(true);
     }
 
     @Override
     public void update(Client client) {
-
+        credits.setText("Credits: " + client.getCredit());
+        miles.setText("Nb miles: " + client.getMiles());
+        status.setText("Status: " + client.getStatus());
+        lastAction.setText("Last action: " + client.getLastAction());
     }
 }
