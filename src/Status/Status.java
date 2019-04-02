@@ -35,12 +35,12 @@ public abstract class Status {
      * Get the status coefficient
      * @return the percentage of miles you get from a purchase
      */
-    abstract double getCoefficient();
+    public abstract double getCoefficient();
 
     /**
      * check if the client's current miles update his status
      */
-    abstract void thresholdCheck();
+    public abstract void thresholdCheck();
 
     /**
      * Get the color associated with the status

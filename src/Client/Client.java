@@ -65,12 +65,18 @@ public class Client implements Comparable{
         observerNotify();
     }
 
+    public void setLastAction(String lastAction) {
+        this.lastAction = lastAction;
+        observerNotify();
+    }
+
     /**
      * adds miles to the client
      * @param miles miles to add
      */
     public void addMiles(double miles) {
         this.miles += miles;
+        status.thresholdCheck();
         observerNotify();
     }
 
