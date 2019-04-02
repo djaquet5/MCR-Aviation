@@ -10,5 +10,5 @@ public interface Observer {
      * updates the panel parameters for a given client
      * @param client the client to update
      */
-    void update(Client client);
+    public void update(Client client);
 }
