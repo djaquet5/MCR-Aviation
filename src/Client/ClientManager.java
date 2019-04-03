@@ -71,7 +71,9 @@ public class ClientManager {
       clientPanel.add(this.clients);
 
       JButton details = new JButton("Details");
-      details.addActionListener(e -> new ClientObserver(getCurrentClient()));
+      details.addActionListener(e ->
+            new ClientObserver(getCurrentClient())
+      );
       clientPanel.add(details);
 
       panel.add(clientPanel);
@@ -108,7 +110,9 @@ public class ClientManager {
       for(Flight f : flights)
          this.flights.addItem(f);
 
-      this.flights.addActionListener(e -> loadTickets());
+      this.flights.addActionListener(e ->
+            loadTickets()
+      );
 
       loadTickets();
       flightsPanel.add(this.flights);
@@ -158,11 +162,15 @@ public class ClientManager {
       JPanel buttonsPanel = new JPanel();
 
       JButton statuses = new JButton("Statuses");
-      statuses.addActionListener(e -> new StatusObserver(clients));
+      statuses.addActionListener(e ->
+            new StatusObserver(clients)
+      );
       buttonsPanel.add(statuses);
 
       JButton quit = new JButton("Quit");
-      quit.addActionListener(e -> frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING)));
+      quit.addActionListener(e ->
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING))
+      );
       buttonsPanel.add(quit);
 
       panel.add(buttonsPanel);

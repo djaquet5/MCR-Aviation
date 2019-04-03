@@ -76,7 +76,11 @@ public class StatusObserver implements Observer {
 
     @Override
     public void update(Client client) {
-        clientList.get(clientIds.indexOf(client.getId())).setText(client.toString() + " " + client.getStatus().toString());
-        clientList.get(clientIds.indexOf(client.getId())).setForeground(client.getStatus().getColor());
+        int index = clientIds.indexOf(client.getId());
+
+        clientList.get(index).setText(client.toString() + " " +
+                                      client.getStatus().toString());
+
+        clientList.get(index).setForeground(client.getStatus().getColor());
     }
 }
