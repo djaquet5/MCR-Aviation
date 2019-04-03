@@ -40,7 +40,7 @@ public class ClientObserver implements Observer{
         });
 
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new GridLayout(6, 1));
         panel.add(lastName);
         panel.add(firstName);
         panel.add(credits);

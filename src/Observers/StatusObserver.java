@@ -33,14 +33,14 @@ public class StatusObserver implements Observer {
         JFrame frame = new JFrame();
         JPanel panel = new JPanel();
 
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new GridLayout(clients.size(), 1));
         for (int i = 0; i < clients.size(); i++) {
             panel.add(clientList.get(i));
         }
 
         JScrollPane scrollPane = new JScrollPane(panel);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBounds(0, 0, 300, 100);
         JPanel contentPane = new JPanel(null);
         contentPane.setPreferredSize(new Dimension(300, 100));
