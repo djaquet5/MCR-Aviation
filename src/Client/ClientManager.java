@@ -1,6 +1,5 @@
-package Frames;
+package Client;
 
-import Client.Client;
 import Flight.Flight;
 import Flight.Ticket;
 import Observers.ClientObserver;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
  * Client manager and main window
  */
 public class ClientManager {
-   private JFrame frame;
+   private JFrame frame = new JFrame("Clients manager");
 
    private JPanel panel = new JPanel();
    private JComboBox<Client> clients = new JComboBox<>();
@@ -22,8 +21,8 @@ public class ClientManager {
    private JComboBox<Ticket> tickets = new JComboBox<>();
    private JTextField creditsText = new JTextField(5);
 
-   private final int width = 600;
-   private final int height = 200;
+   private final int frameWidth = 600;
+   private final int frameHeight = 200;
 
    /**
     * Client manager constructor
@@ -31,7 +30,6 @@ public class ClientManager {
     * @param flights list of flights
     */
    public ClientManager(ArrayList<Client> clients, ArrayList<Flight> flights) {
-      frame = new JFrame("Clients manager");
       panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
       initClient(clients);
@@ -41,7 +39,7 @@ public class ClientManager {
 
       frame.add(panel);
 
-      frame.setSize(width, height);
+      frame.setSize(frameWidth, frameHeight);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setVisible(true);
    }
