@@ -4,9 +4,6 @@
  Fichier     : Economy.java
  Auteur(s)   : David Jaquet & Yoann Rohrbasser
  Date        : 03.04.2019
-
- Remarque(s) :
-
  -----------------------------------------------------------------------------------
 */
 

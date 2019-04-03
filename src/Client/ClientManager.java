@@ -6,7 +6,6 @@
  Date        : 03.04.2019
 
  Remarque(s) : Clients, flights and ticket are stocked in JComboBox
-
  -----------------------------------------------------------------------------------
 */
 
