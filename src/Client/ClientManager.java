@@ -1,3 +1,15 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 02
+ Fichier     : ClientManager.java
+ Auteur(s)   : David Jaquet & Yoann Rohrbasser
+ Date        : 03.04.2019
+
+ Remarque(s) : Clients, flights and ticket are stocked in JComboBox
+
+ -----------------------------------------------------------------------------------
+*/
+
 package Client;
 
 import Flight.Flight;

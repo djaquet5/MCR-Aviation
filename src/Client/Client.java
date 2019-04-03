@@ -1,3 +1,15 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 02
+ Fichier     : Client.java
+ Auteur(s)   : David Jaquet & Yoann Rohrbasser
+ Date        : 03.04.2019
+
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
+
 package Client;
 
 import Observers.Observer;

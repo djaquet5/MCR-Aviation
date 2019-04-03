@@ -37,7 +37,7 @@
       <child>26685</child>
       <parent>23749</parent>
     </inheritance>
-    <association aggregation="AGGREGATE" direction="FIRST_TO_SECOND" id="18726" name="a le statuts de &gt;">
+    <association aggregation="AGGREGATE" direction="FIRST_TO_SECOND" id="18726" name="has the status &gt;">
       <role componentId="18724" name="" visibility="PRIVATE">
         <multiplicity>
           <min>1</min>
@@ -51,7 +51,7 @@
         </multiplicity>
       </role>
     </association>
-    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27374" name="est observé par v">
+    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27374" name="is observed by v">
       <role componentId="23749" name="" visibility="PRIVATE">
         <multiplicity>
           <min>0</min>
@@ -65,7 +65,7 @@
         </multiplicity>
       </role>
     </association>
-    <association aggregation="NONE" direction="BIDIRECTIONAL" id="27426" name="concerne &gt;">
+    <association aggregation="NONE" direction="BIDIRECTIONAL" id="27426" name="is for &gt;">
       <role componentId="19050" name="" visibility="PRIVATE">
         <multiplicity>
           <min>3</min>
@@ -79,8 +79,8 @@
         </multiplicity>
       </role>
     </association>
-    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27437" name="">
-      <role componentId="18724" name="gère &gt;" visibility="PRIVATE">
+    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27437" name="manage &gt;">
+      <role componentId="18724" name="" visibility="PRIVATE">
         <multiplicity>
           <min>0</min>
           <max>2147483647</max>
@@ -93,7 +93,7 @@
         </multiplicity>
       </role>
     </association>
-    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27459" name="possède ^">
+    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27459" name="has ^">
       <role componentId="18917" name="" visibility="PRIVATE">
         <multiplicity>
           <min>0</min>
@@ -107,7 +107,7 @@
         </multiplicity>
       </role>
     </association>
-    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27477" name="&lt; possède">
+    <association aggregation="NONE" direction="SECOND_TO_FIRST" id="27477" name="&lt; has">
       <role componentId="19050" name="" visibility="PRIVATE">
         <multiplicity>
           <min>0</min>
@@ -346,7 +346,7 @@
       <labelAssociation>
         <x>576</x>
         <y>210</y>
-        <w>64</w>
+        <w>33</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
@@ -388,7 +388,7 @@
       <labelAssociation>
         <x>833</x>
         <y>249</y>
-        <w>64</w>
+        <w>33</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
@@ -432,15 +432,15 @@
         </point>
       </line>
       <labelAssociation>
-        <x>1090</x>
-        <y>175</y>
-        <w>0</w>
+        <x>994</x>
+        <y>150</y>
+        <w>62</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
         <x>1016</x>
         <y>150</y>
-        <w>44</w>
+        <w>0</w>
         <h>17</h>
       </roleAssociation>
       <roleAssociation>
@@ -476,7 +476,7 @@
       <labelAssociation>
         <x>509</x>
         <y>58</y>
-        <w>69</w>
+        <w>43</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
@@ -518,7 +518,7 @@
       <labelAssociation>
         <x>1285</x>
         <y>500</y>
-        <w>108</w>
+        <w>101</w>
         <h>17</h>
       </labelAssociation>
       <roleAssociation>
@@ -872,5 +872,23 @@
         <h>84</h>
       </geometry>
     </componentView>
+    <note color="-2079" content="Les ticket, les vols et les clients sont stockés dans des JComboBox">
+      <noteGeometry>
+        <x>460</x>
+        <y>440</y>
+        <w>150</w>
+        <h>60</h>
+      </noteGeometry>
+      <noteLine color="-12566464" relationId="26843">
+        <point>
+          <x>611</x>
+          <y>471</y>
+        </point>
+        <point>
+          <x>661</x>
+          <y>471</y>
+        </point>
+      </noteLine>
+    </note>
   </umlView>
 </classDiagram>
